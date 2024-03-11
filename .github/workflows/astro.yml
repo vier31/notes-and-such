@@ -33,8 +33,6 @@ jobs:
     name: Build
     runs-on: ubuntu-latest
     steps:
-      - name: Install pnpm
-        run: npm install pnpm
       - name: Checkout
         uses: actions/checkout@v4
       - name: Detect package manager
@@ -59,7 +57,7 @@ jobs:
         with:
           node-version: "20"
           cache: ${{ steps.detect-package-manager.outputs.manager }}
-          cache-dependency-path: ${{ env.BUILD_PATH }}/package-lock.json
+          cache-dependency-path: ${{ env.BUILD_PATH }}/pnpm-lock.yaml
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v4
