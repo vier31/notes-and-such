@@ -1,6 +1,7 @@
 {
   "name": "notes-and-such",
   "version": "4.2.0",
+  "packagemanager": "pnpm@latest",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
