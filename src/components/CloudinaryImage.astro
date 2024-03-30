@@ -1,0 +1,28 @@
+---
+import { Cloudinary } from "@cloudinary/url-gen";
+interface Props {
+  src: string;
+  width?: string;
+  height?: string;
+  alt?: string;
+}
+
+const { src, ...props } = Astro.props;
+
+const cld = new Cloudinary({
+  cloud: {
+    cloudName: "studiobanauso",
+  },
+  url: {
+    secure: true,
+  },
+});
+
+let cldSrc = cld.image(src);
+
+// cldSrc.setDeliveryType('fetch')
+// cldSrc.format('auto')
+// cldSrc.quality('auto')
+---
+
+<img src={cldSrc.toURL()} loading="lazy" {...props} />
