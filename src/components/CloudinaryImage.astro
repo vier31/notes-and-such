@@ -2,6 +2,7 @@
 import { Cloudinary } from "@cloudinary/url-gen";
 interface Props {
   src: string;
+  id?: string;
   width?: string;
   height?: string;
   alt?: string;
@@ -20,9 +21,13 @@ const cld = new Cloudinary({
 
 let cldSrc = cld.image(src);
 
-// cldSrc.setDeliveryType('fetch')
-// cldSrc.format('auto')
-// cldSrc.quality('auto')
+cldSrc.format("auto");
+cldSrc.quality("auto");
 ---
 
-<img src={cldSrc.toURL()} loading="lazy" {...props} />
+<img
+  class="mx-auto mb-12 mt-8"
+  src={cldSrc.toURL()}
+  loading="lazy"
+  {...props}
+/>
